@@ -85,6 +85,7 @@ RM := rm -rf
 -include applications/macSYS/Src/subdir.mk
 -include applications/macGUI/porting/subdir.mk
 -include applications/macGUI/lvgl_gui/subdir.mk
+-include applications/macGUI/lvgl_demos/subdir.mk
 -include applications/macBSP/Src/subdir.mk
 -include applications/macAPP/Src/subdir.mk
 -include applications/subdir.mk
@@ -121,7 +122,7 @@ all: rtthread.elf secondary-outputs
 
 # 工具调用
 rtthread.elf: $(OBJS) $(USER_OBJS)
-	arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -ffunction-sections -fdata-sections -Wall  -g -gdwarf-2 -T "G:\MyItemFloder\STM32-RTT-Studio-ItemFloder\CPR-Assessment-Comprehensive-Training-System\Remote-Control-Device\linkscripts\STM32F103RE\link.lds" -Xlinker --gc-sections -Wl,-Map,"rtthread.map" -Xlinker --cref -o "rtthread.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -ffunction-sections -fdata-sections -Wall  -g -gdwarf-2 -T "C:\Users\18452\Documents\Github_youngnights\lvgl-stm32f103ret6-rtt-demos\linkscripts\STM32F103RE\link.lds" -Xlinker --gc-sections -Wl,-Map,"rtthread.map" -Xlinker --cref -o "rtthread.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 
 rtthread.bin: rtthread.elf
 	arm-none-eabi-objcopy -O binary "rtthread.elf"  "rtthread.bin"
