@@ -372,7 +372,7 @@ void Matrixkey_Thread_entry(void* parameter)
 rt_thread_t Matrixkey_Task_Handle = RT_NULL;
 int Matrixkey_Thread_Init(void)
 {
-    Matrixkey_Task_Handle = rt_thread_create("Matrixkey_Thread_entry", Matrixkey_Thread_entry, RT_NULL, 4096, 9, 300);
+    Matrixkey_Task_Handle = rt_thread_create("Matrixkey_Thread_entry", Matrixkey_Thread_entry, RT_NULL, 4096, 9, 50);
     /* 检查是否创建成功,成功就启动线程 */
     if(Matrixkey_Task_Handle != RT_NULL)
     {
