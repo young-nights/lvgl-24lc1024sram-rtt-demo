@@ -87,9 +87,11 @@ packages/LVGL-v8.3.10/src/font \
 packages/LVGL-v8.3.10/src/hal \
 packages/LVGL-v8.3.10/src/misc \
 packages/LVGL-v8.3.10/src/widgets \
+rt-thread/components/drivers/hwtimer \
 rt-thread/components/drivers/i2c \
 rt-thread/components/drivers/ipc \
 rt-thread/components/drivers/misc \
+rt-thread/components/drivers/rtc \
 rt-thread/components/drivers/serial \
 rt-thread/components/drivers/spi \
 rt-thread/components/finsh \

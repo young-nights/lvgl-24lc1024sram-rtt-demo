@@ -18,9 +18,11 @@ RM := rm -rf
 -include rt-thread/components/finsh/subdir.mk
 -include rt-thread/components/drivers/spi/subdir.mk
 -include rt-thread/components/drivers/serial/subdir.mk
+-include rt-thread/components/drivers/rtc/subdir.mk
 -include rt-thread/components/drivers/misc/subdir.mk
 -include rt-thread/components/drivers/ipc/subdir.mk
 -include rt-thread/components/drivers/i2c/subdir.mk
+-include rt-thread/components/drivers/hwtimer/subdir.mk
 -include packages/LVGL-v8.3.10/src/widgets/subdir.mk
 -include packages/LVGL-v8.3.10/src/misc/subdir.mk
 -include packages/LVGL-v8.3.10/src/hal/subdir.mk

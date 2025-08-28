@@ -16,6 +16,7 @@
 
 #include <rtdef.h>
 #include <sys/time.h>
+#include "board.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,17 +49,19 @@ struct rt_rtc_ops
     rt_err_t (*set_timeval)(struct timeval *tv);
 };
 
+
 typedef struct rt_rtc_device
 {
     struct rt_device parent;
     const struct rt_rtc_ops *ops;
 } rt_rtc_dev_t;
 
+#ifndef BSP_USING_ONCHIP_RTC
 rt_err_t rt_hw_rtc_register(rt_rtc_dev_t  *rtc,
                             const char    *name,
                             rt_uint32_t    flag,
                             void          *data);
-
+#endif
 rt_err_t set_date(rt_uint32_t year, rt_uint32_t month, rt_uint32_t day);
 rt_err_t set_time(rt_uint32_t hour, rt_uint32_t minute, rt_uint32_t second);
 rt_err_t set_timestamp(time_t timestamp);

@@ -66,7 +66,7 @@
 #define RT_USING_COMPONENTS_INIT
 #define RT_USING_USER_MAIN
 #define RT_MAIN_THREAD_STACK_SIZE 2048
-#define RT_MAIN_THREAD_PRIORITY 10
+#define RT_MAIN_THREAD_PRIORITY 5
 #define RT_USING_MSH
 #define RT_USING_FINSH
 #define FINSH_USING_MSH
@@ -88,10 +88,12 @@
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_RB_BUFSZ 512
+#define RT_USING_HWTIMER
 #define RT_USING_I2C
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
 #define RT_USING_ADC
+#define RT_USING_RTC
 #define RT_USING_SPI
 
 /* Using USB */
@@ -124,6 +126,7 @@
 #define RT_USING_ULOG
 #define ULOG_OUTPUT_LVL_D
 #define ULOG_OUTPUT_LVL 7
+#define ULOG_USING_ISR_LOG
 #define ULOG_ASSERT_ENABLE
 #define ULOG_LINE_BUF_SIZE 128
 #define ULOG_USING_ASYNC_OUTPUT
@@ -136,6 +139,7 @@
 
 #define ULOG_USING_COLOR
 #define ULOG_OUTPUT_TIME
+#define ULOG_TIME_USING_TIMESTAMP
 #define ULOG_OUTPUT_LEVEL
 #define ULOG_OUTPUT_TAG
 /* end of log format */
@@ -196,7 +200,7 @@
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
 #define PKG_USING_LVGL
-#define PKG_LVGL_THREAD_PRIO 5
+#define PKG_LVGL_THREAD_PRIO 10
 #define PKG_LVGL_THREAD_STACK_SIZE 10240
 #define PKG_LVGL_DISP_REFR_PERIOD 10
 #define PKG_LVGL_USING_V080310

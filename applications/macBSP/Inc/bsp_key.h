@@ -39,6 +39,6 @@ typedef enum
 
 void MatrixKey_Scan(void);
 int keyTimer_Init(void);
-
+int hwtimer6_init(void);
 
 #endif /* MACBSP_INC_BSP_KEY_H_ */
