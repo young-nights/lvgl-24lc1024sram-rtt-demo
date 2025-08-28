@@ -23,8 +23,6 @@ void lv_user_gui_init(void)
 
 
     draw_basic_button();
-
-
 }
 
 

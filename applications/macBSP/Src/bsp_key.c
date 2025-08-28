@@ -230,8 +230,8 @@ void MatrixKey_Scan(void)
 /* 以下是按键扫描线程的创建以及回调函数                                                                          */
 /*---------------------------------------------------------------------------------------------------------------*/
 #define USE_SOFT_TIMER  0   // 使用软件定时器
-#define USE_HARD_TIMER  1   // 使用硬件定时器
-#define USE_THREAD_TASK 0   // 使用RT-Thread线程
+#define USE_HARD_TIMER  0   // 使用硬件定时器
+#define USE_THREAD_TASK 1   // 使用RT-Thread线程
 
 
 #if USE_SOFT_TIMER
@@ -268,7 +268,6 @@ INIT_APP_EXPORT(keyTimer_Init);
 
 #elif USE_HARD_TIMER
 
-#define LOG_TAG              "LOG_DBG"
 #define HWTIMER6_DEV_NAME    "timer6"    /* 定时器名称 */
 rt_device_t hw6_dev = RT_NULL;           /* 定时器设备句柄 */
 rt_hwtimerval_t timeout_s;               /* 定时器超时值 */
@@ -277,9 +276,10 @@ rt_hwtimerval_t timeout_s;               /* 定时器超时值 */
 static rt_err_t timer6_timeout_cb(rt_device_t dev, rt_size_t size)
 {
 
-
-    rt_device_read(hw6_dev, 0, &timeout_s, sizeof(timeout_s));
-    LOG_I("LOG_I(%d): Read: Sec = %d, Usec = %d\n", Record.ulog_cnt++, timeout_s.sec, timeout_s.usec);
+    MatrixKey_Scan();
+//    LOG_I("Timer6 timeout @ %d\n", rt_tick_get());
+//    rt_device_read(hw6_dev, 0, &timeout_s, sizeof(timeout_s));
+//    LOG_I("LOG_I(%d): Read: Sec = %d, Usec = %d\n", Record.ulog_cnt++, timeout_s.sec, timeout_s.usec);
     return 0;
 }
 
@@ -331,8 +331,8 @@ int hwtimer6_init(void)
 
 
     /* 设置定时器超时值为10ms并启动定时器 */
-    timeout_s.sec = 1;      /* 秒 */
-    timeout_s.usec = 0;  /* 微秒 */
+    timeout_s.sec = 0;      /* 秒 */
+    timeout_s.usec = 10000;  /* 微秒 */
 
     if (rt_device_write(hw6_dev, 0, &timeout_s, sizeof(timeout_s)) != sizeof(timeout_s))
     {
@@ -346,9 +346,46 @@ int hwtimer6_init(void)
 
       return ret;
 }
-INIT_APP_EXPORT(hwtimer6_init);
 
 #elif USE_THREAD_TASK
+
+/**
+  * @brief  This thread entry is used for key scan
+  * @retval void
+  */
+void Matrixkey_Thread_entry(void* parameter)
+{
+
+    for(;;)
+    {
+        MatrixKey_Scan();
+        rt_thread_mdelay(10);
+    }
+}
+
+
+
+/**
+  * @brief  This is a Initialization for matrix key
+  * @retval int
+  */
+rt_thread_t Matrixkey_Task_Handle = RT_NULL;
+int Matrixkey_Thread_Init(void)
+{
+    Matrixkey_Task_Handle = rt_thread_create("Matrixkey_Thread_entry", Matrixkey_Thread_entry, RT_NULL, 4096, 9, 300);
+    /* 检查是否创建成功,成功就启动线程 */
+    if(Matrixkey_Task_Handle != RT_NULL)
+    {
+        rt_kprintf("PRINTF:%d. Matrixkey_Thread_entry is Succeed!! \r\n",Record.kprintf_cnt++);
+        rt_thread_startup(Matrixkey_Task_Handle);
+    }
+    else {
+        rt_kprintf("PRINTF:%d. Matrixkey_Thread_entry is Failed \r\n",Record.kprintf_cnt++);
+    }
+
+    return RT_EOK;
+}
+INIT_APP_EXPORT(Matrixkey_Thread_Init);
 
 
 #endif
