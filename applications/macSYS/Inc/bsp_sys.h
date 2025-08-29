@@ -44,12 +44,13 @@
 #include "ulog.h"
 
 /* LVGL 路径下头文件 */
-#include "gui_guider.h"
 #include "lvgl_gui.h"
 #include "lv_port_disp.h"
-#include "events_init.h"
 #include "lv_port_indev.h"
 #include "basic_widget.h"
+#include "lvgl_examples.h"
+#include "lvgl_events.h"
+#include "lvgl_screen.h"
 
 
 // 这个宏用于使能lv_printf.c文件中的lv_snprintf()函数

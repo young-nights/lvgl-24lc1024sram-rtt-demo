@@ -22,6 +22,7 @@ SUBDIRS := \
 applications/macAPP/Src \
 applications/macBSP/Src \
 applications/macGUI/lvgl_demos \
+applications/macGUI/lvgl_fonts \
 applications/macGUI/lvgl_gui \
 applications/macGUI/porting \
 applications/macSYS/Src \

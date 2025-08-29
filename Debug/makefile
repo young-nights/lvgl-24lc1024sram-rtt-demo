@@ -87,6 +87,7 @@ RM := rm -rf
 -include applications/macSYS/Src/subdir.mk
 -include applications/macGUI/porting/subdir.mk
 -include applications/macGUI/lvgl_gui/subdir.mk
+-include applications/macGUI/lvgl_fonts/subdir.mk
 -include applications/macGUI/lvgl_demos/subdir.mk
 -include applications/macBSP/Src/subdir.mk
 -include applications/macAPP/Src/subdir.mk

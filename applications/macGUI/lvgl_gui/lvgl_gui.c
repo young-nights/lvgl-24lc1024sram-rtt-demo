@@ -9,20 +9,20 @@
  */
 #include <macGUI/lvgl_gui/lvgl_gui.h>
 
-lv_ui gui_guider_lvgl;
+lvgl_ui_t guider_lvgl;
 
 void lv_user_gui_init(void)
 {
 
-#define USE_GUI_GUIDER 0
+#define USE_GUI_GUIDER 1
 #if USE_GUI_GUIDER
-    extern void setup_ui(lv_ui *ui);
-    setup_ui(&gui_guider_lvgl);
-    events_init(&gui_guider_lvgl);
+    extern void setup_ui(lvgl_ui_t *ui);
+    setup_ui(&guider_lvgl);
 #endif
 
-
+#if USE_LVGL_EXAMPLES
     draw_basic_button();
+#endif
 }
 
 
