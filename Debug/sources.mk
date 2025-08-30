@@ -92,7 +92,6 @@ rt-thread/components/drivers/hwtimer \
 rt-thread/components/drivers/i2c \
 rt-thread/components/drivers/ipc \
 rt-thread/components/drivers/misc \
-rt-thread/components/drivers/rtc \
 rt-thread/components/drivers/serial \
 rt-thread/components/drivers/spi \
 rt-thread/components/finsh \

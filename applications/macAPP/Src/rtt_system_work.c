@@ -11,7 +11,7 @@
 
 
 
-
+#if USE_SOFT_STATE_MACHINE
 
 static void Timing_1ms(void)
 {
@@ -99,7 +99,7 @@ int sysTimer_Init(void)
 }
 
 
-
+#endif
 
 
 

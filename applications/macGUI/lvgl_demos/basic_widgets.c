@@ -1,3 +1,4 @@
+#include <basic_widgets.h>
 /*
  * Copyright (c) 2006-2021, RT-Thread Development Team
  *
@@ -7,7 +8,6 @@
  * Date           Author       Notes
  * 2025-08-26     18452       the first version
  */
-#include "basic_widget.h"
 
 
 void draw_basic_button(void)

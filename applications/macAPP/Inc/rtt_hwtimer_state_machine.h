@@ -12,7 +12,7 @@
 
 #include "bsp_sys.h"
 
-
+#define USE_HWTIMER_STATE_MACHINE 0
 #if USE_HWTIMER_STATE_MACHINE
 
 int hwtimer6_init(void);

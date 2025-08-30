@@ -37,11 +37,12 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 extern ADC_HandleTypeDef hadc1;
+
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi3;
+
 extern UART_HandleTypeDef huart1;
-extern TIM_HandleTypeDef htim6;
-extern RTC_HandleTypeDef hrtc;
+
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -52,8 +53,6 @@ void MX_SPI1_Init(void);
 void MX_USART1_UART_Init(void);
 void MX_SPI3_Init(void);
 void MX_ADC1_Init(void);
-void MX_TIM6_Init(void);
-void MX_RTC_Init(void);
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

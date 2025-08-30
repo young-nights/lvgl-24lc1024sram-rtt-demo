@@ -13,9 +13,30 @@
 
 
 
+extern struct rt_spi_device *spi_dev_lora;
+
+/* 片选引脚 -- CS */
+#define     LORA_CS_PORT     LORA_CE_GPIO_Port
+#define     LORA_CS_PIN      LORA_CE_Pin
+
+#define     LORA_CS_SET(bit) if(bit) \
+                            HAL_GPIO_WritePin ( LORA_CS_PORT, LORA_CS_PIN , GPIO_PIN_SET )\
+                            else \
+                            HAL_GPIO_WritePin ( LORA_CS_PORT, LORA_CS_PIN , GPIO_PIN_RESET )
+
+
+/* SPI引脚 -- NSS */
+#define     LORA_CSN_PORT     LORA_NSS_GPIO_Port
+#define     LORA_CSN_PIN      LORA_NSS_Pin
+
+#define     LORA_CSN_SET(bit) if(bit) \
+                            HAL_GPIO_WritePin ( LORA_CSN_PORT, LORA_CSN_PIN , GPIO_PIN_SET )\
+                            else \
+                            HAL_GPIO_WritePin ( LORA_CSN_PORT, LORA_CSN_PIN , GPIO_PIN_RESET )
 
 
 
+//---------spi函数声明-------------------
 
 
 

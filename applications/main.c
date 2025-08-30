@@ -44,8 +44,6 @@ int main(void)
   MX_USART1_UART_Init();
   MX_SPI3_Init();
   MX_ADC1_Init();
-  MX_TIM6_Init();
-  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   ulog_init();
   /* USER CODE END 2 */

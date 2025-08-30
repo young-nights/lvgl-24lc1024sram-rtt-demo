@@ -9,6 +9,8 @@
  */
 #include "internal_rtc.h"
 
+#ifdef ULOG_TIME_USING_TIMESTAMP
+
 
 /*
  * 程序清单：这是一个 RTC 设备使用例程
@@ -117,4 +119,4 @@ int rtc_time_set(void)
 }
 INIT_APP_EXPORT(rtc_time_set);
 
-
+#endif

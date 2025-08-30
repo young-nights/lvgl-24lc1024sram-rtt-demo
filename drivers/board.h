@@ -221,7 +221,7 @@ extern "C"
  *
  */
 
-#define BSP_USING_TIM
+/*#define BSP_USING_TIM*/
 #ifdef BSP_USING_TIM
 #define BSP_USING_TIM6
 /*#define BSP_USING_TIM15*/
@@ -244,8 +244,7 @@ extern "C"
  *                 such as     #define HAL_RTC_MODULE_ENABLED
  *
  */
-#define BSP_USING_ONCHIP_RTC
-#define BSP_RTC_USING_LSI
+/*#define BSP_USING_ONCHIP_RTC*/
 
 /*-------------------------- RTC CONFIG END --------------------------*/
 
