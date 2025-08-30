@@ -101,4 +101,4 @@ static int nrf24l01_sample_init(void)
     return RT_EOK;
 }
 
-INIT_APP_EXPORT(nrf24l01_sample_init);
+//INIT_APP_EXPORT(nrf24l01_sample_init);
