@@ -11,7 +11,8 @@
 #define APPLICATIONS_MACBSP_INC_BSP_LORA_SPI_H_
 #include "bsp_sys.h"
 
-
+#define USE_CUSTOMER_NRF24L01 0
+#if USE_CUSTOMER_NRF24L01
 
 extern struct rt_spi_device *spi_dev_lora;
 
@@ -39,5 +40,7 @@ extern struct rt_spi_device *spi_dev_lora;
 //---------spi函数声明-------------------
 
 
+
+#endif
 
 #endif /* APPLICATIONS_MACBSP_INC_BSP_LORA_SPI_H_ */

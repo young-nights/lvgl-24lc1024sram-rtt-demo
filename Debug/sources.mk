@@ -88,6 +88,8 @@ packages/LVGL-v8.3.10/src/font \
 packages/LVGL-v8.3.10/src/hal \
 packages/LVGL-v8.3.10/src/misc \
 packages/LVGL-v8.3.10/src/widgets \
+packages/nrf24l01-latest/demo \
+packages/nrf24l01-latest/src \
 rt-thread/components/drivers/hwtimer \
 rt-thread/components/drivers/i2c \
 rt-thread/components/drivers/ipc \
