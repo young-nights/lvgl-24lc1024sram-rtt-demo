@@ -74,7 +74,6 @@ int hal_nrf24_port_init(hal_nrf24_port_t halport, char *spi_dev_name, int ce_pin
     struct rt_spi_configuration cfg;
 
     RT_ASSERT(halport != RT_NULL);
-
     dev = (struct rt_spi_device *)rt_device_find(spi_dev_name);
     if (!dev) {
         LOG_E("Can't find device on %s\n", spi_dev_name);
