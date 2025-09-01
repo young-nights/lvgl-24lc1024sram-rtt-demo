@@ -7,7 +7,9 @@
  * Date           Author       Notes
  * 2025-08-30     18452       the first version
  */
-#include "bsp_lora_driver.h"
+#ifndef APPLICATIONS_MACBSP_INC_BSP_NRF24L01_DRIVER_H_
+#define APPLICATIONS_MACBSP_INC_BSP_NRF24L01_DRIVER_H_
+#include "bsp_sys.h"
 
 
 
@@ -16,7 +18,4 @@
 
 
 
-
-
-
-
+#endif /* APPLICATIONS_MACBSP_INC_BSP_NRF24L01_DRIVER_H_ */

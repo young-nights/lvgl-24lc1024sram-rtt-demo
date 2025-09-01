@@ -89,11 +89,11 @@ void MX_ADC1_Init(void);
 #define LCD_RST_GPIO_Port GPIOC
 #define LCD_CS_Pin GPIO_PIN_0
 #define LCD_CS_GPIO_Port GPIOB
-#define LORA_IRQ_Pin GPIO_PIN_10
-#define LORA_IRQ_GPIO_Port GPIOB
-#define LORA_IRQ_EXTI_IRQn EXTI15_10_IRQn
-#define LORA_CE_Pin GPIO_PIN_11
-#define LORA_CE_GPIO_Port GPIOB
+#define nRF24_IRQ_Pin GPIO_PIN_10
+#define nRF24_IRQ_GPIO_Port GPIOB
+#define nRF24_IRQ_EXTI_IRQn EXTI15_10_IRQn
+#define nRF24_CE_Pin GPIO_PIN_11
+#define nRF24_CE_GPIO_Port GPIOB
 #define Matrixkey_Row1_Pin GPIO_PIN_12
 #define Matrixkey_Row1_GPIO_Port GPIOB
 #define Matrixkey_Row2_Pin GPIO_PIN_13
@@ -108,8 +108,8 @@ void MX_ADC1_Init(void);
 #define Matrixkey_Column2_GPIO_Port GPIOC
 #define Matrixkey_Column3_Pin GPIO_PIN_8
 #define Matrixkey_Column3_GPIO_Port GPIOC
-#define LORA_NSS_Pin GPIO_PIN_15
-#define LORA_NSS_GPIO_Port GPIOA
+#define nRF24_CSN_Pin GPIO_PIN_15
+#define nRF24_CSN_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

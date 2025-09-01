@@ -7,8 +7,8 @@ C_SRCS += \
 ../applications/macBSP/Src/bsp_battery.c \
 ../applications/macBSP/Src/bsp_key.c \
 ../applications/macBSP/Src/bsp_led.c \
-../applications/macBSP/Src/bsp_lora_driver.c \
-../applications/macBSP/Src/bsp_lora_spi.c \
+../applications/macBSP/Src/bsp_nrf24l01_driver.c \
+../applications/macBSP/Src/bsp_nrf24l01_spi.c \
 ../applications/macBSP/Src/ft6336u_driver.c \
 ../applications/macBSP/Src/ft6336u_iic.c \
 ../applications/macBSP/Src/lcd_driver.c \
@@ -19,8 +19,8 @@ OBJS += \
 ./applications/macBSP/Src/bsp_battery.o \
 ./applications/macBSP/Src/bsp_key.o \
 ./applications/macBSP/Src/bsp_led.o \
-./applications/macBSP/Src/bsp_lora_driver.o \
-./applications/macBSP/Src/bsp_lora_spi.o \
+./applications/macBSP/Src/bsp_nrf24l01_driver.o \
+./applications/macBSP/Src/bsp_nrf24l01_spi.o \
 ./applications/macBSP/Src/ft6336u_driver.o \
 ./applications/macBSP/Src/ft6336u_iic.o \
 ./applications/macBSP/Src/lcd_driver.o \
@@ -31,8 +31,8 @@ C_DEPS += \
 ./applications/macBSP/Src/bsp_battery.d \
 ./applications/macBSP/Src/bsp_key.d \
 ./applications/macBSP/Src/bsp_led.d \
-./applications/macBSP/Src/bsp_lora_driver.d \
-./applications/macBSP/Src/bsp_lora_spi.d \
+./applications/macBSP/Src/bsp_nrf24l01_driver.d \
+./applications/macBSP/Src/bsp_nrf24l01_spi.d \
 ./applications/macBSP/Src/ft6336u_driver.d \
 ./applications/macBSP/Src/ft6336u_iic.d \
 ./applications/macBSP/Src/lcd_driver.d \

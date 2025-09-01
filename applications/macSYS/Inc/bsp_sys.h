@@ -29,8 +29,8 @@
 #include "bsp_battery.h"
 #include "bsp_key.h"
 #include "bsp_led.h"
-#include "bsp_lora_driver.h"
-#include "bsp_lora_spi.h"
+#include <bsp_nrf24l01_driver.h>
+#include <bsp_nrf24l01_spi.h>
 #include "ft6336u_driver.h"
 #include "ft6336u_iic.h"
 #include "lcd_driver.h"

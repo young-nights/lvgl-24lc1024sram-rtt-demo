@@ -1,3 +1,4 @@
+#include <bsp_nrf24l01_driver.h>
 /*
  * Copyright (c) 2006-2021, RT-Thread Development Team
  *
@@ -7,9 +8,6 @@
  * Date           Author       Notes
  * 2025-08-30     18452       the first version
  */
-#ifndef APPLICATIONS_MACBSP_INC_BSP_LORA_DRIVER_H_
-#define APPLICATIONS_MACBSP_INC_BSP_LORA_DRIVER_H_
-#include "bsp_sys.h"
 
 
 
@@ -18,4 +16,7 @@
 
 
 
-#endif /* APPLICATIONS_MACBSP_INC_BSP_LORA_DRIVER_H_ */
+
+
+
+
