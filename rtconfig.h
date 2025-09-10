@@ -276,15 +276,6 @@
 /* touch drivers */
 
 /* end of touch drivers */
-#define PKG_USING_NRF24L01
-#define PKG_USING_NRF24L01_LATEST_VERSION
-#define PKG_NRF24L01_VERSION "latest"
-#define PKG_USING_NRF24L01_DEMO
-#define PKG_NRF24L01_DEMO_ROLE_PTX
-#define PKG_NRF24L01_DEMO_SPI_DEV_NAME "spi3"
-#define PKG_NRF24L01_DEMO_CE_PIN 27
-#define PKG_NRF24L01_DEMO_IRQ_PIN 26
-#define PKG_NRF24L01_DEMO_INTERVAL_SEND 500
 /* end of peripheral libraries and drivers */
 
 /* AI packages */
