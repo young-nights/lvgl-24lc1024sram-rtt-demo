@@ -16,9 +16,9 @@
 //以下是SPI以及nRF24L01引脚配置相关的函数---------------------------------------------------------------------------------------------
 
 /* 宏定义SPI名称 */
-#define     nRF24_SPI_NAME    "nrf24_spi2"
+#define     nRF24_SPI_NAME    "nrf24_spi3"
 /* 宏定义SPI总线 */
-#define     nRF24_SPI_BUS     "spi2"
+#define     nRF24_SPI_BUS     "spi3"
 
 
 
@@ -82,12 +82,12 @@ static void nRF24L01_INT_Callback(void *args)
   */
 int nRF24L01_IQR_GPIO_Config(nrf24_port_api_t port_api)
 {
-    rt_pin_mode(GET_PIN(C, 7), PIN_MODE_INPUT);         /* 保险起见 */
-    rt_pin_attach_irq(  GET_PIN(C, 7),
+    rt_pin_mode(GET_PIN(B, 10), PIN_MODE_INPUT);         /* 保险起见 */
+    rt_pin_attach_irq(  GET_PIN(B, 10),
                         PIN_IRQ_MODE_FALLING,           /* 与 CubeMX 极性一致 */
                         nRF24L01_INT_Callback,
                         RT_NULL);                       /* 不需要参数 */
-    rt_pin_irq_enable(GET_PIN(C, 7), PIN_IRQ_ENABLE);
+    rt_pin_irq_enable(GET_PIN(B, 10), PIN_IRQ_ENABLE);
     return RT_EOK;
 }
 

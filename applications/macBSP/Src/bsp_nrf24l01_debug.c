@@ -5,17 +5,9 @@
  *
  * Change Logs:
  * Date           Author       Notes
- * 2025-09-10     Administrator       the first version
+ * 2025-09-11     18452       the first version
  */
 #include "bsp_nrf24l01_debug.h"
-
-
-
-
-
-
-
-
 
 
 

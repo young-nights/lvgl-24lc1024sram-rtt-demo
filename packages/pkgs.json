@@ -3,10 +3,5 @@
   "path": "/packages/multimedia/LVGL/LVGL", 
   "ver": "v8.3.10", 
   "name": "LVGL"
- }, 
- {
-  "path": "/packages/peripherals/nrf24l01", 
-  "ver": "latest", 
-  "name": "NRF24L01"
  }
 ]

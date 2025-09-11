@@ -18,8 +18,8 @@
 
 
 /* 片选引脚 -- CS */
-#define     nRF24_CS_PORT     nRF24L01_CE_GPIO_Port
-#define     nRF24_CS_PIN      nRF24L01_CE_Pin
+#define     nRF24_CS_PORT     nRF24_CE_GPIO_Port
+#define     nRF24_CS_PIN      nRF24_CE_Pin
 
 #define     nRF24_CS_SET(bit) if(bit) \
                               HAL_GPIO_WritePin ( nRF24_CS_PORT, nRF24_CS_PIN , GPIO_PIN_SET );\
@@ -28,8 +28,8 @@
 
 
 /* SPI引脚 -- NSS */
-#define     nRF24_NSS_PORT     nRF24L01_CSN_GPIO_Port
-#define     nRF24_NSS_PIN      nRF24L01_CSN_Pin
+#define     nRF24_NSS_PORT     nRF24_CSN_GPIO_Port
+#define     nRF24_NSS_PIN      nRF24_CSN_Pin
 
 
 #define     nRF24_NSS_SET(bit) if(bit) \
