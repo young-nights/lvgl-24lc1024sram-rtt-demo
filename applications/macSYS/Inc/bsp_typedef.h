@@ -24,14 +24,11 @@ typedef struct {
     rt_uint8_t  KeyHand_1_Cnt;                   // 手柄1按键按下次数
     rt_uint8_t  Bluetooth_Status;                // 蓝牙连接状态
     rt_uint8_t  OldMode;                         // 老化模式标志位
-    rt_uint8_t  BlueBeepCnt;                     // 蓝牙连接标志
     rt_uint8_t  Probe_type;                      // 探头类型
     rt_uint8_t  Work_mode;                       // 工作模式
     uint16_t    Pluse_time;                      // 脉冲时间
     rt_uint8_t  Pluse_time_H;                    // 脉冲时间(高8位)
     rt_uint8_t  Pluse_time_L;                    // 脉冲时间(低8位)
-    rt_uint8_t  Pneumato_switch;                 // 气体开关
-    rt_uint8_t  StrengLevel;                     // 能量等级
     rt_uint16_t RealPluseTime;                   // 实际的脉冲时间
     rt_uint16_t IFWorking;                       // 是否处于工作状态
     rt_uint8_t  touch_down_flag;                 // 触摸按下标志

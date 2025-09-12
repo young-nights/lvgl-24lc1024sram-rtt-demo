@@ -88,7 +88,7 @@ typedef enum
 } nrf24_power_et;
 
 /***
- * nRF24L01 的空中数据速率模式枚举
+ * nRF24L01的空中数据速率模式枚举
  * ADR_1Mbps : 距离更远，抗干扰好
  * ADR_2Mbps : 延迟更低，带宽更高
  */
@@ -97,6 +97,18 @@ typedef enum
     ADR_1Mbps = 0,
     ADR_2Mbps = 1,
 } nrf24_adr_et;
+
+
+/***
+ * nRF24L01的发送模式枚举
+ * ADR_1Mbps : 距离更远，抗干扰好
+ * ADR_2Mbps : 延迟更低，带宽更高
+ */
+typedef enum
+{
+    nRF24_SEND_NEED_ACK = 0,
+    nRF24_SEND_DONT_NEED_ACK
+} nrf24_send_mode_et;
 
 
 
@@ -275,6 +287,8 @@ struct nRF24L01_STRUCT
 // 外部信号量声明 -------------------------------------------------------------------
 extern rt_sem_t nrf24_send_sem;
 extern rt_sem_t nrf24_irq_sem;
+extern nrf24_t _nrf24;
+
 
 // 函数声明 -------------------------------------------------------------------
 int nRF24L01_Param_Config(nrf24_param_t param);
@@ -299,7 +313,7 @@ void nRF24L01_Read_Rx_Payload(nrf24_t nrf24, uint8_t *buf, uint8_t len);
 void nRF24L01_Flush_TX_FIFO(nrf24_t nrf24);
 void nRF24L01_Flush_RX_FIFO(nrf24_t nrf24);
 void NRF24L01_Set_TxAddr(nrf24_t nrf24, rt_uint8_t *addr_buf, rt_uint8_t length);
-int nRF24L01_Send_Packet(nrf24_t nrf24, uint8_t *data, uint8_t len, uint8_t pipe);
+int nRF24L01_Send_Packet(nrf24_t nrf24, uint8_t *data, uint8_t len, uint8_t pipe, nrf24_send_mode_et mode);
 void nRF24L01_Set_Role_Mode(nrf24_t nrf24, nrf24_role_et mode);
 void nRF24L01_Ensure_RWW_Features_Activated(nrf24_t nrf24);
 int nRF24L01_Run(nrf24_t nrf24);

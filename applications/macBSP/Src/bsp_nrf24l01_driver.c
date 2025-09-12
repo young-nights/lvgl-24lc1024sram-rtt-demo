@@ -78,16 +78,17 @@ int nRF24L01_Param_Config(nrf24_param_t param)
 
 
     rt_uint8_t tx_addr[5] = { 0x55, 0x0A, 0x01, 0x89, 0x03 };
-    rt_uint8_t rx_addr_pipe0[5] = { 0x55, 0x0A, 0x01, 0x89, 0x01 };
-    rt_uint8_t rx_addr_pipe1[5] = { 0x55, 0x0A, 0x01, 0x89, 0x02 };
+    rt_uint8_t rx_addr_pipe0[5] = { 0x55, 0x0A, 0x01, 0x89, 0x99 };
+    rt_uint8_t rx_addr_pipe1[5] = { 0x55, 0x0A, 0x01, 0x89, 0x01 };
     for(int16_t i = 0; i < 5; i++){
         param->txaddr[i] = tx_addr[i];
         param->rx_addr_p0[i] = rx_addr_pipe0[i];
         param->rx_addr_p1[i] = rx_addr_pipe1[i];
     }
-    param->rx_addr_p2 = 6;
-    param->rx_addr_p3 = 7;
-    param->rx_addr_p4 = 8;
+    param->rx_addr_p2 = 2;
+
+    param->rx_addr_p3 = 9;
+    param->rx_addr_p4 = 9;
     param->rx_addr_p5 = 9;
 
     return RT_EOK;
@@ -531,7 +532,7 @@ void NRF24L01_Set_TxAddr(nrf24_t nrf24, rt_uint8_t *addr_buf, rt_uint8_t length)
  * @brief  把用户数据写到 TX FIFO（PTX 模式）或 ACK Payload 缓冲区（PRX 模式），并立即触发发送或等待对方读取
  *
  */
-int nRF24L01_Send_Packet(nrf24_t nrf24, uint8_t *data, uint8_t len, uint8_t pipe)
+int nRF24L01_Send_Packet(nrf24_t nrf24, uint8_t *data, uint8_t len, uint8_t pipe, nrf24_send_mode_et mode)
 {
     if (len > 32){
         LOG_E("[nRF24L01]Packet datas too large. \r\n");
@@ -540,7 +541,13 @@ int nRF24L01_Send_Packet(nrf24_t nrf24, uint8_t *data, uint8_t len, uint8_t pipe
 
     // 如果是发送端（PTX）
     if (nrf24->nrf24_cfg.config.prim_rx == ROLE_PTX){
-        nRF24L01_Write_Tx_Payload_Ack(nrf24, data, len);
+        if(mode == nRF24_SEND_NEED_ACK){
+            nRF24L01_Write_Tx_Payload_Ack(nrf24, data, len);
+        }
+        else if(mode == nRF24_SEND_DONT_NEED_ACK){
+            nRF24L01_Write_Tx_Payload_NoAck(nrf24, data, len);
+        }
+
     }
     // 如果是接收端（PRX）
     else{
@@ -619,7 +626,13 @@ int nRF24L01_Run(nrf24_t nrf24)
 
     // 1. 如果使用IRQ中断，则获取信号量等待释放
     if(nrf24->nrf24_flags.using_irq == RT_TRUE){
-        rt_sem_take(nrf24_irq_sem, RT_WAITING_FOREVER);
+        rt_err_t result = rt_sem_take(nrf24_irq_sem, RT_WAITING_FOREVER);
+        if(result != RT_EOK){
+            LOG_E("nrf24_irq_sem take a dynamic semaphore, failed.\n");
+        }
+        else{
+            LOG_I("nrf24_irq_sem take a dynamic semaphore, succeed.\n");
+        }
     }
 
     // 2. 读取status状态标志，并清除中断触发标志位
@@ -642,7 +655,7 @@ int nRF24L01_Run(nrf24_t nrf24)
              return -1;
          }
 
-         /* 4.2 收到 ACK 带载荷（PTX 也能收） */
+         /* 4.2 收到 ACK 带载荷（PTX 也能收）*/
          if(nrf24->nrf24_flags.status & NRF24BITMASK_RX_DR){
              uint8_t rec_data[32];
              uint8_t len = nRF24L01_Read_Top_RXFIFO_Width(nrf24);
@@ -654,7 +667,7 @@ int nRF24L01_Run(nrf24_t nrf24)
          }
 
 
-         /* 4.3 发送完成 */
+         /* 4.3 NRF24BITMASK_TX_DST --> 在PTX模式下，发送需要ACK数据包并接收到回应后，置位 */
          if(nrf24->nrf24_flags.status & NRF24BITMASK_TX_DS){
              if(nrf24->nrf24_cb.nrf24l01_tx_done){
                  nrf24->nrf24_cb.nrf24l01_tx_done(nrf24, pipe);
@@ -664,7 +677,7 @@ int nRF24L01_Run(nrf24_t nrf24)
      }
 
 
-     // 5. 角色 = 接收端（PTX）
+     // 5. 角色 = 接收端（PRX）
      if(nrf24->nrf24_cfg.config.prim_rx == ROLE_PRX)
      {
          if(pipe < 5){

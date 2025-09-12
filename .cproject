@@ -348,7 +348,7 @@
   <storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders" />
   <storageModule moduleId="refreshScope" versionNumber="2">
     <configuration configurationName="Debug">
-      <resource resourceType="PROJECT" workspacePath="/project" />
+      <resource resourceType="PROJECT" workspacePath="/lvgl-stm32f103ret6-rtt-demos" />
     </configuration>
   </storageModule>
   <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets" />

@@ -9,6 +9,7 @@ C_SRCS += \
 ../applications/macBSP/Src/bsp_led.c \
 ../applications/macBSP/Src/bsp_nrf24l01_debug.c \
 ../applications/macBSP/Src/bsp_nrf24l01_driver.c \
+../applications/macBSP/Src/bsp_nrf24l01_message.c \
 ../applications/macBSP/Src/bsp_nrf24l01_spi.c \
 ../applications/macBSP/Src/ft6336u_driver.c \
 ../applications/macBSP/Src/ft6336u_iic.c \
@@ -22,6 +23,7 @@ OBJS += \
 ./applications/macBSP/Src/bsp_led.o \
 ./applications/macBSP/Src/bsp_nrf24l01_debug.o \
 ./applications/macBSP/Src/bsp_nrf24l01_driver.o \
+./applications/macBSP/Src/bsp_nrf24l01_message.o \
 ./applications/macBSP/Src/bsp_nrf24l01_spi.o \
 ./applications/macBSP/Src/ft6336u_driver.o \
 ./applications/macBSP/Src/ft6336u_iic.o \
@@ -35,6 +37,7 @@ C_DEPS += \
 ./applications/macBSP/Src/bsp_led.d \
 ./applications/macBSP/Src/bsp_nrf24l01_debug.d \
 ./applications/macBSP/Src/bsp_nrf24l01_driver.d \
+./applications/macBSP/Src/bsp_nrf24l01_message.d \
 ./applications/macBSP/Src/bsp_nrf24l01_spi.d \
 ./applications/macBSP/Src/ft6336u_driver.d \
 ./applications/macBSP/Src/ft6336u_iic.d \
