@@ -125,7 +125,7 @@ void nRF24L01_Thread_entry(void* parameter)
     nRF24L01_Clear_Observe_TX(_nrf24);
     /* 15. 配置完成，进入上电模式 */
     nRF24L01_Enter_Power_Up_Mode(_nrf24);
-    _nrf24->nrf24_ops.nrf24_set_ce();
+    _nrf24->nrf24_ops.nrf24_reset_ce();
     LOG_I("LOG:%d. Successfully initialized",Record.ulog_cnt++);
     rt_kprintf("\r\n\r\n");
     rt_kprintf("----------------------------------\r\n");

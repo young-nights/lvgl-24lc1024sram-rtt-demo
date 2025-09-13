@@ -528,6 +528,25 @@ void NRF24L01_Set_TxAddr(nrf24_t nrf24, rt_uint8_t *addr_buf, rt_uint8_t length)
 
 
 
+/***
+ * @brief 设置nRF24L01的待机模式
+ * @note
+ */
+void nRF24L01_Standby_Set(nrf24_t nrf24, nrf24_standby_et mode)
+{
+    if(mode == Standby_one)
+    {
+
+    }
+    else if(mode == Standby_two)
+    {
+
+    }
+}
+
+
+
+
 /**
  * @brief  把用户数据写到 TX FIFO（PTX 模式）或 ACK Payload 缓冲区（PRX 模式），并立即触发发送或等待对方读取
  *

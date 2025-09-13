@@ -113,6 +113,19 @@ typedef enum
 
 
 /***
+ * nRF24L01的收发器模式的枚举
+ * ROLE_NONE   : 尚未设置是接收端还是发送端
+ * ROLE_PTX    : 作为发送器
+ * ROLE_PRX    : 作为接收器
+ */
+typedef enum
+{
+    Standby_one = 0,
+    Standby_two
+} nrf24_standby_et;
+
+
+/***
  * nRF24L01 的参数配置结构体
  */
 struct nRF24L01_PARAMETER_STRUCT
