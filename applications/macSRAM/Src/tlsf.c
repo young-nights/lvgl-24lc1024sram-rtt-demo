@@ -59,6 +59,31 @@ tlsf_decl int tlsf_ffs(unsigned int word)
 
 #else
 
+/**
+ * @brief  查找 word 中最低位的 1 所在的位索引（从 0 开始计数）。
+ *
+ * 本函数是对 GCC 内建函数 __builtin_ffs() 的轻量级封装。
+ * __builtin_ffs() 返回“最低位 1 的位号 + 1”，因此需要减 1 才能
+ * 得到 0~based 索引；若 word 为 0，则 __builtin_ffs() 返回 0，
+ * 减 1 后得到 -1，可作为“没有找到置位”的统一错误标识。
+ *
+ * @par 算法原理
+ * 现代 CPU 在硬件指令集中提供“前向位扫描”（Forward Bit Scan）
+ * 指令，GCC 将其封装为 __builtin_ffs()。该指令在单个时钟周期内
+ * 即可返回结果，复杂度 O(1)，远快于纯软件实现的逐位扫描。
+ *
+ * @param word  待扫描的 32 位无符号整数。
+ *
+ * @return  成功时返回最低位 1 的位号（0 … 31）；<br>
+ *          若 word == 0，返回 -1。
+ *
+ * @note
+ * - 仅当编译器为 GCC 或 Clang 时可用；<br>
+ * - 在 -O1 及以上优化级别，调用会被直接展开成一条机器指令，无函数调用开销；<br>
+ * - 若需可移植到 MSVC，可改用 `_BitScanForward()` 实现对应版本。
+ *
+ * @see __builtin_ffs, _BitScanForward
+ */
 tlsf_decl int tlsf_ffs(unsigned int word)
 {
 	return __builtin_ffs(word) - 1;
@@ -66,13 +91,43 @@ tlsf_decl int tlsf_ffs(unsigned int word)
 
 #endif
 
+
+
+/**
+ * @brief  获取 word 中最高位 1 的位索引（0-based）。
+ *
+ * 本函数封装 GCC 内建函数 __builtin_clz()（Count Leading Zeros），
+ * 用于快速定位一个 32 位无符号整数中最高位的 1。
+ *
+ * @par 实现原理
+ * __builtin_clz(word) 统计 word 前导零的个数：
+ *   - 若 word != 0，则最高位 1 所在的位号 = 32 - clz；<br>
+ *   - 若 word == 0，则 __builtin_clz 的行为未定义，因此需要单独处理
+ *
+ * 为了统一返回 0~based 索引，最终把结果再减 1：<br>
+ *   - word 为 0 时，手动置 bit = 0，减 1 后返回 -1，表示“无置位”；<br>
+ *   - word 不为 0 时，返回 31 … 0 范围内的位号。
+ *
+ * @param word  待扫描的 32 位无符号整数。
+ *
+ * @return  成功时返回最高位 1 的位号（0 … 31）；<br>
+ *          若 word == 0，返回 -1。
+ *
+ * @note
+ * - 仅在 GCC/Clang 下可用；<br>
+ * - 在 -O1 及以上优化级别，会被展开成一条 CLZ/BSR 指令，无函数调用开销；<br>
+ * - 若需移植到 MSVC，可改用 `_BitScanReverse()` 实现对应版本。
+ *
+ * @see __builtin_clz, _BitScanReverse
+ */
 tlsf_decl int tlsf_fls(unsigned int word)
 {
-    // 关键计算：如果word不是0，则计算32减去它的前导零数量；如果是0，则结果设为0。
+    /* 关键计算：如果 word 不是 0，则计算 32 减去它的前导零数量；如果是 0，则结果设为 0。 */
     const int bit = word ? 32 - __builtin_clz(word) : 0;
-    // 将结果从1-based转换为0-based索引后返回
+    /* 将结果从 1-based 转换为 0-based 索引后返回 */
     return bit - 1;
 }
+
 
 #elif defined (_MSC_VER) && (_MSC_VER >= 1400) && (defined (_M_IX86) || defined (_M_X64))
 /* Microsoft Visual C++ support on x86/X64 architectures. */
