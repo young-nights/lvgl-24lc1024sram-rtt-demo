@@ -90,7 +90,7 @@ void lv_port_disp_init(void)
     static lv_color_t buf_2_2[MY_DISP_HOR_RES * 10];                        /*An other buffer for 10 rows*/
 #endif
     lv_disp_draw_buf_init(&draw_buf_dsc_2, buf_2_1, buf_2_2, MY_DISP_HOR_RES * 10);   /*Initialize the display buffer*/
-    #endif
+    #endif /*LV_USE_TWO_BUFFER*/
 
 
     #if LV_USE_DOUBLE_BUFFER

@@ -9,15 +9,13 @@
  */
 #include <macGUI/lvgl_gui/lvgl_gui.h>
 
-
+lvgl_ui_t guider_lvgl;
 
 void lv_user_gui_init(void)
 {
 #ifdef USE_LVGL_TEST
     lv_example_get_started_1();
 #endif
-
-
 
 }
 

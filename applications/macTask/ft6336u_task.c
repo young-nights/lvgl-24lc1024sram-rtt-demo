@@ -86,8 +86,6 @@ void FT6336U_Thread_entry(void* parameter)
 
         rt_thread_mdelay(10);
     }
-
-
 }
 
 
@@ -112,7 +110,7 @@ int FT6336U_Thread_Init(void)
 
     return RT_EOK;
 }
-INIT_APP_EXPORT(FT6336U_Thread_Init);
+//INIT_APP_EXPORT(FT6336U_Thread_Init);
 
 
 

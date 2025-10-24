@@ -41,12 +41,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_SPI2_Init();
   MX_SPI1_Init();
   MX_SPI3_Init();
   MX_ADC1_Init();
-  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
+  sysTimer_Init();
 
 
   /* USER CODE END 2 */
@@ -56,7 +55,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
 
       rt_thread_mdelay(500);
     /* USER CODE BEGIN 3 */

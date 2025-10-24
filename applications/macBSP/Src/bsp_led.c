@@ -291,7 +291,7 @@ int8_t LED_GetNumber(void)
   */
 void LED_Thread_entry(void* parameter)
 {
-
+    LED_Init();
     for(;;)
     {
         LED_DrvScan();

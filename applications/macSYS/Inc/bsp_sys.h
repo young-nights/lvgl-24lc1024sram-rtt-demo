@@ -27,20 +27,13 @@
 #include "rtt_system_work.h"
 
 /* macBSP 头文件 */
-#include "bsp_hard.h"
 #include "bsp_key.h"
 #include "bsp_led.h"
 #include "ft6336u_driver.h"
 #include "ft6336u_iic.h"
 #include "lcd_driver.h"
-#include "st7789_driver.h"
 #include "st7789_spi.h"
 #include "bsp_battery.h"
-#include "23lc1024_sram_spi.h"
-#include "23lc1024_sram_test.h"
-#include "23lc1024_sram_tlsf.h"
-#include "tlsf.h"
-
 /* macSYS 头文件 */
 #include "bsp_typedef.h"
 

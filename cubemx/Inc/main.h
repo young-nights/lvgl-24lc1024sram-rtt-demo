@@ -39,9 +39,7 @@ extern "C" {
 extern ADC_HandleTypeDef hadc1;
 
 extern SPI_HandleTypeDef hspi1;
-extern SPI_HandleTypeDef hspi2;
 extern SPI_HandleTypeDef hspi3;
-extern RTC_HandleTypeDef hrtc;
 
 extern UART_HandleTypeDef huart1;
 /* USER CODE END ET */
@@ -51,11 +49,9 @@ extern UART_HandleTypeDef huart1;
 void SystemClock_Config(void);
 void MX_GPIO_Init(void);
 void MX_USART1_UART_Init(void);
-void MX_SPI2_Init(void);
-void MX_SPI1_Init(void);
-void MX_SPI3_Init(void);
 void MX_ADC1_Init(void);
-void MX_RTC_Init(void);
+void MX_SPI3_Init(void);
+void MX_SPI1_Init(void);
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -64,7 +60,6 @@ void MX_RTC_Init(void);
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
@@ -101,26 +96,20 @@ void MX_RTC_Init(void);
 #define LORA_CE_GPIO_Port GPIOB
 #define Matrixkey_Row1_Pin GPIO_PIN_12
 #define Matrixkey_Row1_GPIO_Port GPIOB
-#define SRAM_SCK_Pin GPIO_PIN_13
-#define SRAM_SCK_GPIO_Port GPIOB
-#define SRAM_MISO_Pin GPIO_PIN_14
-#define SRAM_MISO_GPIO_Port GPIOB
-#define SRAM_MOSI_Pin GPIO_PIN_15
-#define SRAM_MOSI_GPIO_Port GPIOB
+#define Matrixkey_Row2_Pin GPIO_PIN_13
+#define Matrixkey_Row2_GPIO_Port GPIOB
+#define Matrixkey_Row3_Pin GPIO_PIN_14
+#define Matrixkey_Row3_GPIO_Port GPIOB
+#define LCD_BLK_Pin GPIO_PIN_15
+#define LCD_BLK_GPIO_Port GPIOB
 #define Matrixkey_Column1_Pin GPIO_PIN_6
 #define Matrixkey_Column1_GPIO_Port GPIOC
 #define Matrixkey_Column2_Pin GPIO_PIN_7
 #define Matrixkey_Column2_GPIO_Port GPIOC
 #define Matrixkey_Column3_Pin GPIO_PIN_8
 #define Matrixkey_Column3_GPIO_Port GPIOC
-#define Matrixkey_Row2_Pin GPIO_PIN_9
-#define Matrixkey_Row2_GPIO_Port GPIOC
-#define Matrixkey_Row3_Pin GPIO_PIN_8
-#define Matrixkey_Row3_GPIO_Port GPIOA
 #define SRAM_CS_Pin GPIO_PIN_11
 #define SRAM_CS_GPIO_Port GPIOA
-#define LCD_BLK_Pin GPIO_PIN_12
-#define LCD_BLK_GPIO_Port GPIOA
 #define LORA_NSS_Pin GPIO_PIN_15
 #define LORA_NSS_GPIO_Port GPIOA
 

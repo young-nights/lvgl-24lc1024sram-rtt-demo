@@ -93,6 +93,8 @@
 #define RT_USING_ADC
 #define RT_USING_RTC
 #define RT_USING_SPI
+#define RT_USING_SPI_BITOPS
+#define RT_SPI_BITOPS_DEBUG
 
 /* Using USB */
 
@@ -135,8 +137,6 @@
 /* log format */
 
 #define ULOG_USING_COLOR
-#define ULOG_OUTPUT_TIME
-#define ULOG_TIME_USING_TIMESTAMP
 #define ULOG_OUTPUT_LEVEL
 #define ULOG_OUTPUT_TAG
 /* end of log format */
@@ -271,6 +271,10 @@
 /* GD32 Drivers */
 
 /* end of GD32 Drivers */
+
+/* HPMicro SDK */
+
+/* end of HPMicro SDK */
 /* end of HAL & SDK Drivers */
 
 /* sensors drivers */

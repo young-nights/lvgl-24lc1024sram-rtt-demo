@@ -114,7 +114,7 @@ rt_err_t st7789_send_half_word(const rt_uint16_t data)
     sendbuf[1] = data;
 
     LCD_DC_SET(PIN_HIGH);
-    len = rt_spi_send(spi_dev_tft, &sendbuf, 2);
+    len = rt_spi_send(spi_dev_tft, sendbuf, 2);
 
     if (len != 2){
         LOG_I("lcd_write_half_word error. %d", len);

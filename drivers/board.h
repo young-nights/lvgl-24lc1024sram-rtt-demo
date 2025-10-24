@@ -120,7 +120,7 @@ extern "C"
 
 #define BSP_USING_SPI1
 /*#define BSP_USING_SPI2*/
-/*#define BSP_USING_SPI3*/
+#define BSP_USING_SPI3
 
 /*-------------------------- SPI CONFIG END --------------------------*/
 
@@ -245,8 +245,7 @@ extern "C"
  *                 such as     #define HAL_RTC_MODULE_ENABLED
  *
  */
-#define BSP_USING_ONCHIP_RTC
-#define BSP_RTC_USING_LSI
+/*#define BSP_USING_ONCHIP_RTC*/
 
 
 /*-------------------------- RTC CONFIG END --------------------------*/
