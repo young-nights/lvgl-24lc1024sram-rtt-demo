@@ -12,7 +12,7 @@
 #include "bsp_sys.h"
 
 
-#ifdef USE_LVGL_TEST
+#ifdef USE_LVGL_TEST_BUTTON
 void lv_example_get_started_1(void);
 #endif
 

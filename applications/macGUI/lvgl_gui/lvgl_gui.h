@@ -19,18 +19,6 @@ extern "C" {
 #include "lvgl.h"
 
 
-typedef struct
-{
-
-    lv_obj_t *screen_main;
-    bool screen_del;
-    lv_obj_t *screen_cont_1;
-    lv_obj_t *screen_start_btn;
-    lv_obj_t *screen_start_btn_label;
-    lv_obj_t *screen_main_title_lab;
-}lvgl_ui_t;
-extern lvgl_ui_t guider_lvgl;
-
 
 void lv_user_gui_init(void);
 

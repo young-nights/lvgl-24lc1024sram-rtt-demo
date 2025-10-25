@@ -19,6 +19,7 @@
 #include <rthw.h>
 #include <drv_spi.h>
 #include <rtdbg.h>
+#include <stdio.h>
 
 /* 该头文件包含了所有CubeMX自动生成的初始化引脚 */
 #include "main.h"
@@ -46,9 +47,9 @@
 
 
 // 这个宏用于使能lv_printf.c文件中的lv_snprintf()函数
-#define USE_LV_SNPRINTF     0
-
-
+#define USE_LV_SNPRINTF          0
+// A button with a label and react on click event
+#define USE_LVGL_TEST_BUTTON     0
 
 
 #endif /* APPLICATIONS_MACSYS_INC_BSP_SYS_H_ */
